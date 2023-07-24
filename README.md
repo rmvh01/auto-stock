@@ -2,7 +2,7 @@
 
 Team:
 
-* Person 1 - Which microservice?
+* farell - sales
 * Person 2 - Which microservice?
 
 ## Design
