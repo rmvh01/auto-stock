@@ -2,7 +2,7 @@
 
 Team:
 
-* Person 1 - Which microservice?
+* farell - sales
 * max - service
 
 ## Design
