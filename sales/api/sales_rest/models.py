@@ -14,6 +14,7 @@ class SalesPerson(models.Model):
     employee_id = models.CharField(max_length=150)
 
 
+
     # creatig href using a reverse method
     def get_api_url(self):
         href = reverse("sales_people")
@@ -31,9 +32,6 @@ class Customer(models.Model):
         return f"{href}{self.id}"
 
 
-
-
-
 class Sale(models.Model):
     automobile = models.ForeignKey(
         AutomobileVO, related_name="automobile",
@@ -48,3 +46,7 @@ class Sale(models.Model):
         on_delete=models.PROTECT,
     )
     price = models.FloatField()
+
+    def get_api_url(self):
+        href = reverse('get_sale')
+        return f'{href}{self.id}'
