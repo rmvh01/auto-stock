@@ -7,6 +7,12 @@ class AutomobileVO(models.Model):
     sold = models.BooleanField(default=False)
     href = models.CharField(max_length=100,unique=True)
 
+    def sold_true(self):
+        self.sold = True
+        self.save()
+
+
+
 
 class SalesPerson(models.Model):
     first_name = models.CharField(max_length=150)
