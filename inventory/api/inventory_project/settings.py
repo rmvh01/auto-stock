@@ -52,7 +52,6 @@ MIDDLEWARE = [
 ALLOWED_HOSTS = [
     "localhost",
     "inventory-api",
-    # it was project-beta-inventory-api-1"
 ]
 
 CSRF_TRUSTED_ORIGINS = [
