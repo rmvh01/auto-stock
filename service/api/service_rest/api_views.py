@@ -12,6 +12,7 @@ class TechnicianEncoder(ModelEncoder):
         "employee_id",
         "first_name",
         "last_name",
+        "id",
     ]
 
 class AppointmentEncoder(ModelEncoder):
@@ -19,12 +20,12 @@ class AppointmentEncoder(ModelEncoder):
     properties = [
         "date_time",
         "reason",
-        "technician",
         "vin",
         "customer",
+        "technician",
     ]
 
-    encoders= {
+    encoders = {
         "technician": TechnicianEncoder(),
     }
 
@@ -32,8 +33,8 @@ class AppointmentEncoder(ModelEncoder):
         return {"status": o.status.name}
 
 
-@require_http_methods(["GET", "POST", "DELETE"])
-def api_list_technicians(request, id=None):
+@require_http_methods(["GET", "POST"])
+def api_list_technicians(request):
     if request.method == "GET":
         technicians = Technician.objects.all()
         return JsonResponse(
@@ -41,9 +42,6 @@ def api_list_technicians(request, id=None):
             encoder=TechnicianEncoder,
             safe=False
         )
-    elif request.method == "DELETE":
-        count, _ = Technician.objects.filter(id=id).delete()
-        return JsonResponse({"deleted": count > 0})
     else:
         content = json.loads(request.body)
         technician = Technician.objects.create(**content)
@@ -52,6 +50,13 @@ def api_list_technicians(request, id=None):
             encoder=TechnicianEncoder,
             safe=False,
         )
+
+
+@require_http_methods(["DELETE"])
+def api_delete_technician(request, technician_id):
+    count, _ = Technician.objects.filter(id=technician_id).delete()
+    return JsonResponse({"message": count > 0})
+
 
 @require_http_methods(["GET", "POST"])
 def api_list_appointments(request):
@@ -64,6 +69,15 @@ def api_list_appointments(request):
         )
     else:
         content = json.loads(request.body)
+        try:
+            technician_id = content["technician"]
+            technician = Technician.objects.get(id=technician_id)
+        except Technician.DoesNotExist:
+            return JsonResponse(
+                {"message": "invalid technician id"},
+                status=400,
+            )
+        content["technician"] = technician
         appointment = Appointment.create(**content)
         return JsonResponse(
             appointment,
@@ -80,7 +94,7 @@ def api_delete_appointment(request, id):
 @require_http_methods(["PUT"])
 def api_cancel_appointment(request, id):
     appointment = Appointment.objects.get(id=id)
-    appointment.reject()
+    appointment.cancel()
     return JsonResponse(
         appointment,
         encoder=AppointmentEncoder,

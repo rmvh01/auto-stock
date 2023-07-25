@@ -6,16 +6,17 @@ from django.urls import reverse
 class Technician(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    employee_id = models.CharField(max_length=100)
+    employee_id = models.CharField(max_length=100, unique=True)
 
     def get_api_url(self):
-        # probably wrong
-        return reverse("api_list_technicians", kwargs={"id": "pk"})
+        url = reverse("api_list_technicians") + str(self.id)
+        return url
 
 
 class AutomobileVO(models.Model):
     vin = models.CharField(max_length=17)
     sold = models.BooleanField()
+    import_href = models.CharField(max_length=100)
 
 
 # a value object
@@ -48,7 +49,8 @@ class Appointment(models.Model):
 
     def get_api_url(self):
         # probably will need to be changed
-        return reverse("api_list_appointments")
+        url = reverse("api_list_appointments") + str(self.id)
+        return url
 
     @classmethod
     def create(cls, **content):
