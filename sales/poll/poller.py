@@ -9,10 +9,12 @@ sys.path.append("")
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", "sales_project.settings")
 django.setup()
 
-# Import models from sales_rest, here.
-# from sales_rest.models import Something
+
+# where we want to import the data into;
 from sales_rest.models import AutomobileVO
 
+
+#The logic of polling
 def get_automobile():
     response = requests.get('http://inventory-api:8000/api/automobiles/')
     autos = json.loads(response.content)
@@ -21,16 +23,11 @@ def get_automobile():
         print('-----sucess------')
 
 
-
-
-
-
 def poll(repeat=True):
     while True:
         print('Sales poller polling for data')
         try:
-            # Write your polling logic, here
-            # Do not copy entire file
+            # assign polling logic into the polling system
             get_automobile()
         except Exception as e:
             print(e, file=sys.stderr)
