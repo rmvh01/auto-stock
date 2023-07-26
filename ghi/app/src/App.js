@@ -3,7 +3,7 @@ import MainPage from './MainPage';
 import Nav from './Nav';
 import SalesPeopleList from './SalesPeopleList';
 import CreateSalesPeople from './CreateSalesPeople';
-import
+import CreateCustomer from './CreateCustomer';
 
 function App(props) {
   return (
@@ -14,8 +14,8 @@ function App(props) {
           <Route path="/" element={<MainPage />} />
           {/* sales division */}
           <Route path='SalesPeopleList' element={<SalesPeopleList salesPeople={props.salesPeople_content}/>} />
-          <Route path='CreateSalesPeople' element={<CreateSalesPeople />}/>
-          <Route path='CreateCustomer' element={<}/>
+          <Route path='CreateSalesPeople' element={<CreateSalesPeople />} />
+          <Route path='CreateCustomer' element={<CreateCustomer />} />
 
 
           {/* service division */}

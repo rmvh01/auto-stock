@@ -30,6 +30,7 @@ class SalesPerson(models.Model):
 class Customer(models.Model):
     first_name = models.CharField(max_length=150)
     last_name = models.CharField(max_length=150)
+    address = models.CharField(max_length=250,null=True)
     phone_number = models.CharField(max_length=15)
 
 

@@ -1,6 +1,10 @@
 import { useState,useEffect } from "react";
 
-async function CreateCustomer(){
+function CreateCustomer(){
+    const []
+
+
+
     return(
         <h1>test test test test test</h1>
     )
