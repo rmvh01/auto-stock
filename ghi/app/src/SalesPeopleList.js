@@ -12,7 +12,7 @@ function SalesPeopleList(props){
             <tbody>
                { props.salesPeople.map(salesPeople => {
                 return(
-                    <tr>
+                    <tr key={salesPeople.href}>
                         <td>{salesPeople.employee_id}</td>
                         <td>{salesPeople.first_name}</td>
                         <td>{salesPeople.last_name}</td>
