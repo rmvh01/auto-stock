@@ -4,8 +4,9 @@ import Nav from './Nav';
 import SalesPeopleList from './SalesPeopleList';
 import CreateSalesPeople from './CreateSalesPeople';
 import CreateCustomer from './CreateCustomer';
+import CustomerList from './CustomerList';
 
-function App(props) {
+function App() {
   return (
     <BrowserRouter>
       <Nav />
@@ -13,9 +14,10 @@ function App(props) {
         <Routes>
           <Route path="/" element={<MainPage />} />
           {/* sales division */}
-          <Route path='SalesPeopleList' element={<SalesPeopleList salesPeople={props.salesPeople_content}/>} />
+          <Route path='SalesPeopleList' element={<SalesPeopleList />} />
           <Route path='CreateSalesPeople' element={<CreateSalesPeople />} />
           <Route path='CreateCustomer' element={<CreateCustomer />} />
+          <Route path='CustomerList' element={<CustomerList />}/>
 
 
           {/* service division */}
