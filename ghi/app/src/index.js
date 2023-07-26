@@ -10,10 +10,9 @@ let loaddata = async()=>{
   // fetch the data of sales people
   const salesPeopleUrl = 'http://localhost:8090/api/salespeople/';
   const response = await fetch(salesPeopleUrl);
-  console.log(response,'-------data------')
+  console.log(response,'--sales_people--')
   if(response.ok){
     const salesPeople_content = await response.json()
-    console.log(salesPeople_content,"salesPeople_content")
 
 
     // passing the data
