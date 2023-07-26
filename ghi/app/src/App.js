@@ -14,8 +14,9 @@ function App() {
         <Routes>
           <Route path="/" element={<MainPage />} />
           {/* sales division */}
-          <Route path='SalesPeopleList' element={<SalesPeopleList />} />
           <Route path='CreateSalesPeople' element={<CreateSalesPeople />} />
+          <Route path='SalesPeopleList' element={<SalesPeopleList />} />
+
           <Route path='CreateCustomer' element={<CreateCustomer />} />
           <Route path='CustomerList' element={<CustomerList />}/>
 

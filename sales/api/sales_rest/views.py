@@ -132,6 +132,7 @@ def sale(request,id=None):
         except Sale.DoesNotExist:
             #get all the data object and assign it to a variable
             automobile_vo=AutomobileVO.objects.get(vin = content['automobile'])
+            print(automobile_vo,"-------")
             # change the sold into true
             automobile_vo.sold_true()
             sales_person=SalesPerson.objects.get(employee_id=content['SalesPerson'])

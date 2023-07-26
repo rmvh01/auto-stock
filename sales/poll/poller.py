@@ -19,7 +19,7 @@ def get_automobile():
     response = requests.get('http://inventory-api:8000/api/automobiles/')
     autos = json.loads(response.content)
     for auto in autos['autos']:
-        AutomobileVO.objects.update_or_create(defaults={'vin':auto['vin']}, sold=auto['sold'],href=auto['href'])
+        AutomobileVO.objects.update_or_create(defaults={'vin':auto['vin'],"sold":auto['sold']},href=auto['href'])
         print('-----sucess------')
 
 
