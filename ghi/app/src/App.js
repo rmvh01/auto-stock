@@ -8,6 +8,9 @@ import CustomerList from './CustomerList';
 import CreateNewSales from './CreateNewSales';
 import SalesList from './SalesList';
 import SalesPersonHistory from './SalesPersonHistory';
+import CreateTechnician from './service/CreateTechnician';
+import TechnicianList from './service/TechnicianList';
+import CreateAppointment from './service/CreateAppointment';
 
 function App() {
   return (
@@ -31,6 +34,9 @@ function App() {
 
 
           {/* service division */}
+          <Route path="CreateTechnician" element={<CreateTechnician />}/>
+          <Route path="TechnicianList" element={<TechnicianList />}/>
+          <Route path="CreateAppointment" element={<CreateAppointment />}/>
         </Routes>
       </div>
     </BrowserRouter>
