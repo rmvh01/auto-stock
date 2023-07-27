@@ -49,7 +49,7 @@ function Nav() {
           </button>
           <ul className="dropdown-menu dropdown-menu-dark">
             <li><NavLink className="dropdown-item text-white bg-dark" to="ManufacturersList">Manufacturers List</NavLink></li>
-            <li><NavLink className="dropdown-item text-white bg-dark" to="CustomerList">Customer List</NavLink></li>
+            <li><NavLink className="dropdown-item text-white bg-dark" to="CreateManufacturers">Create Manufacturers</NavLink></li>
           </ul>
         </li>
 

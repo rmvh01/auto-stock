@@ -9,6 +9,7 @@ import CreateNewSales from './Sales/CreateNewSales';
 import SalesList from './Sales/SalesList';
 import SalesPersonHistory from './Sales/SalesPersonHistory';
 import ManufacturersList from './Inventory/ManufacturersList';
+import CreateManufacturers from './Inventory/CreateManufacturers';
 
 function App() {
   return (
@@ -34,6 +35,7 @@ function App() {
 
           {/* inventory division */}
           <Route path="ManufacturersList" element={<ManufacturersList />} />
+          <Route path="CreateManufacturers" element={<CreateManufacturers />} />
 
 
 
