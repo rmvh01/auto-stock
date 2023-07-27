@@ -3,7 +3,7 @@ from django.views.decorators.http import require_http_methods
 import json
 from common.json import ModelEncoder
 
-from .models import Technician, Appointment
+from .models import Technician, Appointment, AutomobileVO
 
 
 class TechnicianEncoder(ModelEncoder):
@@ -14,6 +14,7 @@ class TechnicianEncoder(ModelEncoder):
         "last_name",
         "id",
     ]
+
 
 class AppointmentEncoder(ModelEncoder):
     model = Appointment
@@ -31,6 +32,7 @@ class AppointmentEncoder(ModelEncoder):
 
     def get_extra_data(self, o):
         return {"status": o.status.name}
+
 
 
 @require_http_methods(["GET", "POST"])
