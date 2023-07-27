@@ -8,6 +8,9 @@ import CustomerList from './Sales/CustomerList';
 import CreateNewSales from './Sales/CreateNewSales';
 import SalesList from './Sales/SalesList';
 import SalesPersonHistory from './Sales/SalesPersonHistory';
+import TechnicianList from './service/TechnicianList';
+import CreateTechnician from './service/CreateTechnician';
+import CreateAppointment from './service/CreateAppointment';
 
 function App() {
   return (
