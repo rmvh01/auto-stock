@@ -43,8 +43,6 @@ function SalesList(){
                     );
                 })}
             </tbody>
-
-
       </table>
     )
 }
