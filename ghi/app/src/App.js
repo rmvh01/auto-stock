@@ -31,6 +31,9 @@ function App() {
           <Route path="SalesPersonHistory" element={<SalesPersonHistory />}/>
 
           {/* service division */}
+          <Route path="CreateTechnician" element={<CreateTechnician />}/>
+          <Route path="TechnicianList" element={<TechnicianList />}/>
+          <Route path="CreateAppointment" element={<CreateAppointment />}/>
 
 
           {/* inventory division */}
