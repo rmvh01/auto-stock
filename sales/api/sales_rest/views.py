@@ -35,8 +35,6 @@ def sales_people(request,id=None):
             return JsonResponse(sales_people,encoder=SalesPeopleEncoder,safe=False)
         else:
             return JsonResponse({"message":"employee id is allready exist"})
-
-
     else:
         try:
             count,_ = SalesPerson.objects.get(id=id).delete()
@@ -134,7 +132,7 @@ def sale(request,id=None):
             automobile_vo=AutomobileVO.objects.get(vin = content['automobile'])
             print(automobile_vo,"-------")
             # change the sold into true
-            automobile_vo.sold_true()
+            # automobile_vo.sold_true()
             sales_person=SalesPerson.objects.get(employee_id=content['SalesPerson'])
             customer=Customer.objects.get(phone_number=content['customer'])
             #assigning back to content
@@ -148,9 +146,3 @@ def sale(request,id=None):
         #if the sale is already exist we can NOT create same sale
         else:
             return JsonResponse({'message':'sales is created before'})
-
-
-
-def automobileVO(request):
-    automobileVO = AutomobileVO.objects.all()
-    return JsonResponse(automobileVO,encoder=AutomobileVOEncoder,safe=False)

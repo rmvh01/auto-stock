@@ -22,6 +22,7 @@ function Nav() {
             <li><NavLink className="dropdown-item text-white bg-dark" to="SalesPersonHistory">Sales People History</NavLink></li>
           </ul>
         </li>
+
         <li className="nav-item dropdown">
           <button className="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
             Customer
@@ -31,6 +32,29 @@ function Nav() {
             <li><NavLink className="dropdown-item text-white bg-dark" to="CustomerList">Customer List</NavLink></li>
           </ul>
         </li>
+
+        <li className="nav-item dropdown">
+          <button className="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          Service
+          </button>
+          <ul className="dropdown-menu dropdown-menu-dark">
+            <li><NavLink className="dropdown-item text-white bg-dark" to="CreateTechnician">Create Technician</NavLink></li>
+            <li><NavLink className="dropdown-item text-white bg-dark" to="TechnicianList">Technician List</NavLink></li>
+            <li><NavLink className="dropdown-item text-white bg-dark" to="CreateAppointment">Create Appointment</NavLink></li>
+          </ul>
+        </li>
+
+        <li className="nav-item dropdown">
+          <button className="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
+          ManufacturersList
+          </button>
+          <ul className="dropdown-menu dropdown-menu-dark">
+            <li><NavLink className="dropdown-item text-white bg-dark" to="ManufacturersList">Manufacturers List</NavLink></li>
+            <li><NavLink className="dropdown-item text-white bg-dark" to="CreateManufacturers">Create Manufacturers</NavLink></li>
+          </ul>
+        </li>
+
+
       </ul>
     </div>
   </div>

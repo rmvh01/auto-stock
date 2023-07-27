@@ -8,9 +8,11 @@ import CustomerList from './Sales/CustomerList';
 import CreateNewSales from './Sales/CreateNewSales';
 import SalesList from './Sales/SalesList';
 import SalesPersonHistory from './Sales/SalesPersonHistory';
-import TechnicianList from './service/TechnicianList';
-import CreateTechnician from './service/CreateTechnician';
-import CreateAppointment from './service/CreateAppointment';
+import ManufacturersList from './Inventory/ManufacturersList';
+import CreateManufacturers from './Inventory/CreateManufacturers';
+import CreateTechnician from "./service/CreateTechnician"
+import TechnicianList from "./service/TechnicianList"
+import CreateAppointment from "./service/CreateAppointment"
 
 function App() {
   return (
@@ -31,12 +33,19 @@ function App() {
 
           <Route path="SalesPersonHistory" element={<SalesPersonHistory />}/>
 
-
-
           {/* service division */}
           <Route path="CreateTechnician" element={<CreateTechnician />}/>
           <Route path="TechnicianList" element={<TechnicianList />}/>
           <Route path="CreateAppointment" element={<CreateAppointment />}/>
+
+
+          {/* inventory division */}
+          <Route path="ManufacturersList" element={<ManufacturersList />} />
+          <Route path="CreateManufacturers" element={<CreateManufacturers />} />
+
+
+
+
         </Routes>
       </div>
     </BrowserRouter>
