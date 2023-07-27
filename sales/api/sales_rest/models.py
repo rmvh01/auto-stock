@@ -5,13 +5,11 @@ from django.urls import reverse
 class AutomobileVO(models.Model):
     vin = models.CharField(max_length=100)
     sold = models.BooleanField(default=False)
-    href = models.CharField(max_length=100,unique=True)
+    href = models.CharField(max_length=100)
 
     def sold_true(self):
         self.sold = True
         self.save()
-
-
 
 
 class SalesPerson(models.Model):
@@ -30,6 +28,7 @@ class SalesPerson(models.Model):
 class Customer(models.Model):
     first_name = models.CharField(max_length=150)
     last_name = models.CharField(max_length=150)
+    address = models.CharField(max_length=250,null=True)
     phone_number = models.CharField(max_length=15)
 
 

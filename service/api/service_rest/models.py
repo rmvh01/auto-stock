@@ -6,7 +6,7 @@ from django.urls import reverse
 class Technician(models.Model):
     first_name = models.CharField(max_length=100)
     last_name = models.CharField(max_length=100)
-    employee_id = models.CharField(max_length=100, unique=True)
+    employee_id = models.CharField(max_length=100)
 
     def get_api_url(self):
         url = reverse("api_list_technicians") + str(self.id)

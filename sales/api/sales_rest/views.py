@@ -53,6 +53,7 @@ class CustomerEncoders(ModelEncoder):
     properties=[
         "first_name",
         "last_name",
+        "address",
         "phone_number"
     ]
 
@@ -122,19 +123,16 @@ def sale(request,id=None):
         try:
             # check if the car with the vin exist, if not raise eror
             automobile_vo=AutomobileVO.objects.get(vin = content['automobile'])
-            print(automobile_vo,'-----------automobile_vo')
             # check if sale is already exist because we cant create the sell twice, if not raise Exception
             sale = Sale.objects.get(automobile__vin=content['automobile'])
-            print(sale,'---------sale--------')
-            # if  sale:
-            #     raise Exception
+            # if the car is not exist we cant sell it
         except (AutomobileVO.DoesNotExist):
             return JsonResponse({'message':'Car is not exist'})
-
+        #if the sale is not exist and the car is exist we can create a sale
         except Sale.DoesNotExist:
-            print('--------ok---------')
             #get all the data object and assign it to a variable
             automobile_vo=AutomobileVO.objects.get(vin = content['automobile'])
+            print(automobile_vo,"-------")
             # change the sold into true
             automobile_vo.sold_true()
             sales_person=SalesPerson.objects.get(employee_id=content['SalesPerson'])
@@ -145,38 +143,14 @@ def sale(request,id=None):
             content['customer']=customer
             #create the object
             newSale = Sale.objects.create(**content)
+            print("sucess ... ... ...")
             return JsonResponse(newSale,encoder=SaleEncoder,safe=False)
+        #if the sale is already exist we can NOT create same sale
         else:
             return JsonResponse({'message':'sales is created before'})
 
 
 
-
-
-
-
-
-
-
-
-        # try:
-        #     automobile_vo=AutomobileVO.objects.get(vin = content['automobile'])
-        #     # change the sold into true
-        #     automobile_vo.sold_true()
-        #     sales_person=SalesPerson.objects.get(employee_id=content['SalesPerson'])
-        #     customer=Customer.objects.get(phone_number=content['customer'])
-        # except (AutomobileVO.DoesNotExist, SalesPerson.DoesNotExist,Customer.DoesNotExist):
-        #     JsonResponse({'message':'one of the data is not exist'})
-        #     # sale cannot be created twice. since Vin is unique created foe a single car so if a car is already sold
-        #     # single car so if a car is already sold it cannot be sold twice
-        # try:
-        #     sale = Sale.objects.get(automobile__vin=content['automobile'])
-        #     print(sale,'------sale------')
-        # except Sale.DoesNotExist:
-        #     content['automobile']=automobile_vo
-        #     content['SalesPerson']=sales_person
-        #     content['customer']=customer
-        #     newSale = Sale.objects.create(**content)
-        #     return JsonResponse(newSale,encoder=SaleEncoder,safe=False)
-        # else:
-        #     return JsonResponse({"message":"the sales is already exist"})
+def automobileVO(request):
+    automobileVO = AutomobileVO.objects.all()
+    return JsonResponse(automobileVO,encoder=AutomobileVOEncoder,safe=False)

@@ -3,7 +3,7 @@ from django.urls import reverse
 
 
 class Manufacturer(models.Model):
-    name = models.CharField(max_length=100, unique=True)
+    name = models.CharField(max_length=100)
 
     def get_api_url(self):
         return reverse("api_manufacturer", kwargs={"pk": self.id})
@@ -26,7 +26,7 @@ class VehicleModel(models.Model):
 class Automobile(models.Model):
     color = models.CharField(max_length=50)
     year = models.PositiveSmallIntegerField()
-    vin = models.CharField(max_length=17, unique=True)
+    vin = models.CharField(max_length=17)
     sold = models.BooleanField(default=False)
 
     model = models.ForeignKey(

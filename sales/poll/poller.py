@@ -19,7 +19,8 @@ def get_automobile():
     response = requests.get('http://inventory-api:8000/api/automobiles/')
     autos = json.loads(response.content)
     for auto in autos['autos']:
-        AutomobileVO.objects.update_or_create(defaults={'vin':auto['vin']}, sold=auto['sold'],href=auto['href'])
+
+        AutomobileVO.objects.update_or_create(defaults={'vin':auto['vin'],"href":auto['href']} ,href=auto['href'])
         print('-----sucess------')
 
 
@@ -35,8 +36,13 @@ def poll(repeat=True):
         if (not repeat):
             break
 
-        time.sleep(10)
+        time.sleep(5)
 
 
 if __name__ == "__main__":
     poll()
+
+
+# NOTE only updating and creating the vin and the href withd the status of the sold because it we
+# keep updating the sold, we cant change it into true(because it always keep dhanging into false)
+#the second way we can move the sold status into the vo instead of import the status from the inventory
