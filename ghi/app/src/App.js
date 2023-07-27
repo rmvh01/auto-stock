@@ -8,6 +8,7 @@ import CustomerList from './Sales/CustomerList';
 import CreateNewSales from './Sales/CreateNewSales';
 import SalesList from './Sales/SalesList';
 import SalesPersonHistory from './Sales/SalesPersonHistory';
+import ManufacturersList from './Inventory/ManufacturersList';
 
 function App() {
   return (
@@ -28,9 +29,12 @@ function App() {
 
           <Route path="SalesPersonHistory" element={<SalesPersonHistory />}/>
 
-
-
           {/* service division */}
+
+
+          {/* inventory division */}
+          <Route path="ManufacturersList" element={<ManufacturersList />} />
+
 
 
 
