@@ -52,7 +52,5 @@ function CreateManufacturers(){
         </div>
         </div>
     )
-
 }
-
 export default CreateManufacturers

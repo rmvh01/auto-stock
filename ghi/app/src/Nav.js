@@ -38,8 +38,9 @@ function Nav() {
           Service
           </button>
           <ul className="dropdown-menu dropdown-menu-dark">
-            <li><NavLink className="dropdown-item text-white bg-dark" to="#">Action</NavLink></li>
-            <li><NavLink className="dropdown-item text-white bg-dark" to="#">Action</NavLink></li>
+            <li><NavLink className="dropdown-item text-white bg-dark" to="CreateTechnician">Create Technician</NavLink></li>
+            <li><NavLink className="dropdown-item text-white bg-dark" to="TechnicianList">Technician List</NavLink></li>
+            <li><NavLink className="dropdown-item text-white bg-dark" to="CreateAppointment">Create Appointment</NavLink></li>
           </ul>
         </li>
 
