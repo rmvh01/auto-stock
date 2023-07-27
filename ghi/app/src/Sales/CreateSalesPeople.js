@@ -8,6 +8,7 @@ function CreateSalesPeople(){
     setFirstName(value)
 };
 
+
    const [last_name,setLastName] = useState("");
    const setLastNameHandler = event =>{
     const value = event.target.value;

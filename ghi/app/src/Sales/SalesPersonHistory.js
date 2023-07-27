@@ -39,12 +39,12 @@ function SalesPersonHistory(){
     }
     return (
         <>
-            <h1>Create a new Sales</h1>
+            <h1>Salesperson History</h1>
                 <div className="mb-3">
-                <label htmlFor="customer">Salesperson History</label>
+                <label htmlFor="customer">Choose Sales Person</label>
 
                     <select value={salesPeople} onChange={salesPeopleHandler} required name="customer" id="customer" className="form-select">
-                    <option value="">Customer</option>
+                    <option value=""> Sales Person</option>
                     {salesPeoples.map(salespeople => {
                         return(
                             <option key={salespeople.href} value={salespeople.href}> {salespeople.first_name} {salespeople.last_name}</option>
@@ -64,7 +64,7 @@ function SalesPersonHistory(){
             <tbody>
                 {sales.filter(sale=>sale.SalesPerson.href.includes(salesPeople)).map((p)=>{
                     return(
-                        <tr>
+                        <tr key={p.href}>
                             <td>{p.SalesPerson.first_name} {p.SalesPerson.last_name}</td>
                             <td>{p.customer.first_name} {p.customer.last_name}</td>
                             <td>{p.automobile.vin}</td>
