@@ -1,13 +1,13 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import MainPage from './MainPage';
 import Nav from './Nav';
-import SalesPeopleList from './SalesPeopleList';
-import CreateSalesPeople from './CreateSalesPeople';
-import CreateCustomer from './CreateCustomer';
-import CustomerList from './CustomerList';
-import CreateNewSales from './CreateNewSales';
-import SalesList from './SalesList';
-import SalesPersonHistory from './SalesPersonHistory';
+import SalesPeopleList from './Sales/SalesPeopleList';
+import CreateSalesPeople from './Sales/CreateSalesPeople';
+import CreateCustomer from './Sales/CreateCustomer';
+import CustomerList from './Sales/CustomerList';
+import CreateNewSales from './Sales/CreateNewSales';
+import SalesList from './Sales/SalesList';
+import SalesPersonHistory from './Sales/SalesPersonHistory';
 
 function App() {
   return (
@@ -31,6 +31,9 @@ function App() {
 
 
           {/* service division */}
+
+
+
         </Routes>
       </div>
     </BrowserRouter>
