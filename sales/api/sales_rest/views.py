@@ -149,6 +149,8 @@ def sale(request,id=None):
         else:
             return JsonResponse({'message':'sales is created before'})
 
-def value_object(request):
+
+
+def automobileVO(request):
     automobileVO = AutomobileVO.objects.all()
     return JsonResponse(automobileVO,encoder=AutomobileVOEncoder,safe=False)

@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import sales_people,customer,sale,value_object
+from .views import sales_people,customer,sale,automobileVO
 
 
 urlpatterns =[
@@ -15,5 +15,5 @@ urlpatterns =[
     path('sale/',sale,name='get_sale'),
 
     #path for vo
-    path('value_object/', value_object,name="value_object")
+    path('automobileVO/', automobileVO,name="automobileVO")
 ]
