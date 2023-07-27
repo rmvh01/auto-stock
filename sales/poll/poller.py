@@ -20,7 +20,7 @@ def get_automobile():
     autos = json.loads(response.content)
     for auto in autos['autos']:
 
-        AutomobileVO.objects.update_or_create(defaults={'vin':auto['vin'],"href":auto['href']} ,href=auto['href'])
+        AutomobileVO.objects.update_or_create(defaults={'vin':auto['vin'],"href":auto['href'],"sold":auto['sold']} ,href=auto['href'])
         print('-----sucess------')
 
 

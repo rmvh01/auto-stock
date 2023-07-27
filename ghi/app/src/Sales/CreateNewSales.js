@@ -8,12 +8,12 @@ function CreateNewSales(){
 // creating a AutomobileVIN dropdown
 const [vins,setVins] = useState([]);
 const AutomobileVINdd = async() =>{
-    const url = 'http://localhost:8090/api/automobileVO/';
+    const url = 'http://localhost:8100/api/automobiles/';
     const response = await fetch(url);
     if(response.ok){
       const content = await response.json();
-      setVins(content);
-      console.log(content)
+      setVins(content.autos);
+      console.log(content,"-------")
     }else{
       console.log("error with the AutomobileVINdd drop_down")
     }
@@ -27,7 +27,7 @@ const AutomobileVINdd = async() =>{
     if(response.ok){
       const content = await response.json();
       setSalesPersons(content);
-      console.log(content);
+      // console.log(content);
     }else{
       console.log("error with the salesPersonsdd drop_down");
     }
@@ -41,7 +41,7 @@ const AutomobileVINdd = async() =>{
     if(response.ok){
       const content = await response.json();
       setCustomers(content);
-      console.log(content);
+      // console.log(content);
     }else{
       console.log("error with the customers drop_down");
     }
@@ -79,7 +79,7 @@ const AutomobileVINdd = async() =>{
     setPrice(value);
   }
 
-  const submitHandler = async(event)=>{
+  const submitHandler = (event)=>{
     event.preventDefault()
     const data = {}
     data.automobile = vin;
@@ -87,32 +87,60 @@ const AutomobileVINdd = async() =>{
     data.customer = customer;
     data.price = price
 
-    const content = JSON.stringify(data)
-    const url = 'http://localhost:8090/api/sale/'
-    const fetchConfig ={
-      method:'post',
-      body:content,
-      headers:
-      {
-        'Content-Type':'application/json'
+    // posting the data into the sales to recor all the sales
+    const postingSales=async()=>{
+      const content = JSON.stringify(data)
+      const url = 'http://localhost:8090/api/sale/'
+      const fetchConfig ={
+        method:'post',
+        body:content,
+        headers:{
+          'Content-Type':'application/json'
+        }
+      }
+
+
+         //updating the the inventory, so if the sales succes, update the inventory
+         // into sold status true
+      const udpatingInventory = async()=>{
+        const data = {};
+        data.sold = true
+        const content = JSON.stringify(data)
+
+        const url = `http://localhost:8100/api/automobiles/${vin}/`
+        const fetchConfig = {
+          method:'put',
+          body:content,
+          headers:{
+            'Content-Type':'application/json'
+          }
+        }
+        const response = await fetch(url,fetchConfig)
+        if(response.ok){
+          console.log('updating success .... ... ...');
+        }
+      }
+
+
+      const response1 = await fetch(url,fetchConfig)
+      if(response1.ok){
+        const json = await response1.json();
+        console.log(json,' posting success ... ... ...');
+        //updating the the inventory if the sales is succes
+        udpatingInventory()
       }
     }
-    const response = await fetch(url,fetchConfig)
-    if(response.ok){
-      const json = await response.json();
-      console.log(json,'success ... ... ...');
+
+      //calling the posting sales
+      postingSales()
+
+      // reset the form
       setVin('');
       setSalesPerson('');
       setCustomer('');
       setPrice('')
-
-
-
-
-
-
-    }
   }
+
     return (
     <div className="row">
       <div className="offset-3 col-6">
@@ -126,7 +154,7 @@ const AutomobileVINdd = async() =>{
                 <option value="">Automobile VIN</option>
                 {vins.filter((p)=>p.sold===false).map(vin=>{
                   return(
-                    <option value={vin.vin} key={vin.vin}>{vin.vin}</option>
+                    <option value={vin.vin} key={vin.href}>{vin.vin}</option>
                   )
                 })}
               </select>
