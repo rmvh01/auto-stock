@@ -18,25 +18,21 @@ function CreateAppointment() {
         const value = event.target.value
         setDate(value)
     }
-
     const [time, setTime] = useState("")
     const timeHandler = event => {
         const value = event.target.value
         setTime(value)
     }
-
     const [technician, setTechnician] = useState("")
     const technicianHandler = event => {
         const value = event.target.value
         setTechnician(value)
     }
-
     const [reason, setReason] = useState("")
     const reasonHandler = event => {
         const value = event.target.value
         setReason(value)
     }
-
     const [technicians, setTechnicians] = useState([])
     const technicianDropDown = async() => {
         const url = "http://localhost:8080/api/technicians/"
@@ -50,11 +46,9 @@ function CreateAppointment() {
             console.log("content: ", content)
         }
     }
-
     useEffect(() => {
         technicianDropDown()
     },[])
-
     const submitHandler = async(event) => {
         event.preventDefault()
         const data = {}
