@@ -42,6 +42,7 @@ function CreateAppointment() {
         const url = "http://localhost:8080/api/technicians/"
         const response = await fetch(url)
         if (!response.ok) {
+            setTechnicians([])
             console.log("response not ok: ", response)
         } else {
             const content = await response.json()
@@ -84,7 +85,7 @@ function CreateAppointment() {
             setCustomer('')
             setDate('')
             setTime('')
-            setTechnicians('')
+            setTechnician('')
             setReason('')
         }
     }
@@ -119,7 +120,7 @@ function CreateAppointment() {
 
                     <select value={technician} onChange={technicianHandler} required name="technician" id="technician" className="form-select">
                         <option value="">Technician</option>
-                        {technicians.map(technician => {
+                        {technicians?.map(technician => {
                         return(
                             <option value={technician.id} key={technician.id}>{technician.first_name} {technician.last_name}</option>
                         )
