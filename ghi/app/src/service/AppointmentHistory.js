@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 function AppointmentListH() {
 
     const [appointmentList, setAppointmentList] = useState([])
+    const [filteredAppointments, setFilteredAppointments] = useState([])
     const loadData = async() => {
         const url = 'http://localhost:8080/api/appointments/'
         const response = await fetch(url)
@@ -13,6 +14,7 @@ function AppointmentListH() {
             const data = await response.json()
             console.log("Appointments JSON Data: ", data)
             setAppointmentList(data)
+            setFilteredAppointments(data)
             }
         }
 
@@ -26,18 +28,25 @@ function AppointmentListH() {
         setNumberHandler(value)
     }
 
-    return(
+    useEffect(() => {
+        const filtered = appointmentList.filter(
+            (content) => content.vin.includes(number)
+        )
+        setFilteredAppointments(filtered)
+    }, [number, appointmentList])
 
+    return(
         <>
-        <div className="mb-3">
-            <label htmlFor="vin_search">Search by VIN</label>
-            <input value={number} onChange={vinNumberHandler} required type="text" name="vin_search" id="vin_search">search...</input>
+        <h1>Search by VIN</h1>
+        <br></br>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="basic-addon1">&#128665;</span>
+            <input value={number} onChange={vinNumberHandler} required type="text" class="form-control" placeholder="search..." name="search" id="search" aria-label="Username" aria-describedby="basic-addon1" />
         </div>
         <table className="table table-striped">
             <thead>
                 <tr>
                     <th>VIN</th>
-                    <th>Is vip?</th>
                     <th>Customer</th>
                     <th>Date</th>
                     <th>Time</th>
@@ -47,11 +56,10 @@ function AppointmentListH() {
                 </tr>
             </thead>
             <tbody>
-                {appointmentList.map(content=>{
+                {filteredAppointments.map(content=>{
                     return(
                         <tr key={content.href}>
                             <td>{ content.vin}</td>
-                            <td>{ content.isvip }</td>
                             <td>{ content.customer }</td>
                             <td>{ String(content.date_time).slice(0,10) }</td>
                             <td>{ String(content.date_time).slice(11,16) }</td>

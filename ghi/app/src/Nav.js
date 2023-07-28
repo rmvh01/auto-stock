@@ -48,7 +48,7 @@ function Nav() {
 
         <li className="nav-item dropdown">
           <button className="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-          inventory
+          Inventory
           </button>
           <ul className="dropdown-menu dropdown-menu-dark">
             <li><NavLink className="dropdown-item text-white bg-dark" to="CreateManufacturers">Create Manufacturers</NavLink></li>
