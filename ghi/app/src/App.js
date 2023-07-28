@@ -14,6 +14,7 @@ import CreateTechnician from "./Service/CreateTechnician"
 import TechnicianList from "./Service/TechnicianList"
 import CreateAppointment from "./Service/CreateAppointment"
 import AppointmentList from './Service/AppointmentList';
+import AppointmentListH from './Service/AppointmentHistory';
 import ModelsList from './Inventory/ModelsList';
 import CreateModels from './Inventory/CreateModels';
 import AutomobilesList from './Inventory/AutomobilesList'
@@ -43,6 +44,7 @@ function App() {
           <Route path="TechnicianList" element={<TechnicianList />}/>
           <Route path="CreateAppointment" element={<CreateAppointment />}/>
           <Route path="AppointmentList" element={<AppointmentList />}/>
+          <Route path="AppointmentHistory" element={<AppointmentListH />}/>
 
 
           {/* inventory division */}
