@@ -15,6 +15,7 @@ import TechnicianList from "./service/TechnicianList"
 import CreateAppointment from "./service/CreateAppointment"
 import ModelsList from './Inventory/ModelsList';
 import CreateModels from './Inventory/CreateModels';
+import AutomobilesList from './Inventory/AutomobilesList'
 
 function App() {
   return (
@@ -46,6 +47,7 @@ function App() {
           <Route path="CreateManufacturers" element={<CreateManufacturers />} />
           <Route path="ModelsList" element={<ModelsList />}/>
           <Route path="CreateModels" element={<CreateModels />}/>
+          <Route path="AutomobilesList" element={<AutomobilesList />}/>
 
 
 

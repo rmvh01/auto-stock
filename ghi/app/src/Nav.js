@@ -53,6 +53,7 @@ function Nav() {
             <li><NavLink className="dropdown-item text-white bg-dark" to="CreateManufacturers">Create Manufacturers</NavLink></li>
             <li><NavLink className="dropdown-item text-white bg-dark" to="ModelsList">Models List</NavLink></li>
             <li><NavLink className="dropdown-item text-white bg-dark" to="ManufacturersList">Manufacturers List</NavLink></li>
+            <li><NavLink className="dropdown-item text-white bg-dark" to="AutomobilesList">Automobiles List</NavLink></li>
           </ul>
         </li>
 
