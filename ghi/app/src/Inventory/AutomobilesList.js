@@ -41,8 +41,7 @@ function AutomobilesList(){
                             <td>{automobile.model.name}</td>
                             <td>{automobile.model.manufacturer.name}</td>
                             <td>
-                                {automobile.sold && "YES"}
-                                {!automobile.sold && "NO"}
+                                {automobile.sold ? "YES":'NO'}
                             </td>
                         </tr>
                     )

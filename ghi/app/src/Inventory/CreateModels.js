@@ -53,7 +53,16 @@ function CreateModels(){
         }
         const response= await fetch(url,fetchConfig)
         if(response.ok){
-            console.log(response.json(),'sucess ... .... ...');
+          const content=await response.json()
+            console.log(content,'sucess ... .... ...');
+            setName('');
+            setPicture("");
+            setManufacturer('');
+
+
+
+
+
         }else{
             console.log("error ... ... ...")
         }
@@ -85,10 +94,6 @@ return (
                 })}
               </select>
             </div>
-
-
-
-
             <button className="btn btn-primary">Create</button>
           </form>
         </div>
