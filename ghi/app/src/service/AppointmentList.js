@@ -10,7 +10,6 @@ function AppointmentList() {
             console.log("response not ok: ", response)
         } else {
             const data = await response.json()
-            console.log("Appointments JSON Data: ", data)
             setAppointmentList(data)
             updateVIPStatus(data)
             }
