@@ -38,7 +38,6 @@ function CreateTechnician() {
             console.log("response not ok", response)
         } else {
             const json = await response.json()
-            console.log("json:", json)
             setFirstName("")
             setLastName("")
             setEmployeeID("")

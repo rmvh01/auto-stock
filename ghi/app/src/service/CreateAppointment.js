@@ -43,7 +43,6 @@ function CreateAppointment() {
         } else {
             const content = await response.json()
             setTechnicians(content)
-            console.log("content: ", content)
         }
     }
     useEffect(() => {
@@ -59,7 +58,6 @@ function CreateAppointment() {
         data.technician = Number(technician)
         data.reason = reason
 
-        console.log(data)
         const content = JSON.stringify(data)
         const url = 'http://localhost:8080/api/appointments/'
         const fetchConfig = {
@@ -74,7 +72,6 @@ function CreateAppointment() {
             console.log("response not ok: ", response)
         } else {
             const json = await response.json()
-            console.log("json response is ok: ", json)
             setVins('')
             setCustomer('')
             setDate('')

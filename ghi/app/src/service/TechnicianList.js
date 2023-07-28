@@ -10,7 +10,6 @@ function TechnicianList() {
             return console.log("technician list response not ok: ", response)
         } else {
             const data = await response.json()
-            console.log("Response is ok: ", response)
             SetTechnicians(data)
         }
     }
