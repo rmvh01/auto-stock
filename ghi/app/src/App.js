@@ -48,6 +48,7 @@ function App() {
 
 
           {/* inventory division */}
+
           <Route path="ManufacturersList" element={<ManufacturersList />} />
           <Route path="CreateManufacturers" element={<CreateManufacturers />} />
           <Route path="ModelsList" element={<ModelsList />}/>
