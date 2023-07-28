@@ -25,7 +25,7 @@ function CreateAppointment() {
         setTime(value)
     }
 
-    const [technician, setTechnician] = useState([])
+    const [technician, setTechnician] = useState("")
     const technicianHandler = event => {
         const value = event.target.value
         setTechnician(value)
@@ -59,14 +59,14 @@ function CreateAppointment() {
         const data = {}
         data.vin = vin
         data.customer = customer
-        data.date = date
-        data.time = time
-        data.technician = technician
+        // 2023-07-10T07:55:38
+        data.date_time = `${date}T${time}:00`
+        data.technician = Number(technician)
         data.reason = reason
-        console.log(data)
 
+        console.log(data)
         const content = JSON.stringify(data)
-        const url = 'http://localhost:8080/api/appointments'
+        const url = 'http://localhost:8080/api/appointments/'
         const fetchConfig = {
             method: 'post',
             body: content,
@@ -88,7 +88,6 @@ function CreateAppointment() {
             setReason('')
         }
     }
-    console.log(technician)
     return (
         <div className="row">
             <div className='offset-3 col-6'>
@@ -122,7 +121,7 @@ function CreateAppointment() {
                         <option value="">Technician</option>
                         {technicians.map(technician => {
                         return(
-                            <option value={technician.technician} key={technician.technician}>{technician.technician}</option>
+                            <option value={technician.id} key={technician.id}>{technician.first_name} {technician.last_name}</option>
                         )
                         })}
                     </select>

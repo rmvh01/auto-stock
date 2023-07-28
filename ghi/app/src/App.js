@@ -10,9 +10,9 @@ import SalesList from './Sales/SalesList';
 import SalesPersonHistory from './Sales/SalesPersonHistory';
 import ManufacturersList from './Inventory/ManufacturersList';
 import CreateManufacturers from './Inventory/CreateManufacturers';
-import CreateTechnician from "./service/CreateTechnician"
-import TechnicianList from "./service/TechnicianList"
-import CreateAppointment from "./service/CreateAppointment"
+import CreateTechnician from "./Service/CreateTechnician"
+import TechnicianList from "./Service/TechnicianList"
+import CreateAppointment from "./Service/CreateAppointment"
 
 function App() {
   return (
