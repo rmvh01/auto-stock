@@ -1,5 +1,4 @@
 import { useState,useEffect } from "react";
-
 function SalesList(){
     const [sales,setSales] = useState([]);
     const loadData = async (event) =>{
@@ -11,11 +10,9 @@ function SalesList(){
             console.log(content)
         }
     }
-
     useEffect(()=>{
         loadData()
     },[])
-
     return(
         <table className="table table-striped">
             <thead>
@@ -36,15 +33,11 @@ function SalesList(){
                             <td>{sale.customer.first_name} {sale.customer.last_name}</td>
                             <td>{sale.automobile.vin}</td>
                             <td>{sale.price}</td>
-
-
                         </tr>
-
                     );
                 })}
             </tbody>
       </table>
     )
 }
-
 export default SalesList

@@ -30,25 +30,18 @@ function App() {
           {/* sales division */}
           <Route path='CreateSalesPeople' element={<CreateSalesPeople />} />
           <Route path='SalesPeopleList' element={<SalesPeopleList />} />
-
           <Route path='CreateCustomer' element={<CreateCustomer />} />
           <Route path='CustomerList' element={<CustomerList />}/>
-
           <Route path="CreateNewSales" element={<CreateNewSales />} />
           <Route path="SalesList" element={<SalesList />}/>
-
           <Route path="SalesPersonHistory" element={<SalesPersonHistory />}/>
-
           {/* service division */}
           <Route path="CreateTechnician" element={<CreateTechnician />}/>
           <Route path="TechnicianList" element={<TechnicianList />}/>
           <Route path="CreateAppointment" element={<CreateAppointment />}/>
           <Route path="AppointmentList" element={<AppointmentList />}/>
           <Route path="AppointmentHistory" element={<AppointmentListH />}/>
-
-
           {/* inventory division */}
-
           <Route path="ManufacturersList" element={<ManufacturersList />} />
           <Route path="CreateManufacturers" element={<CreateManufacturers />} />
           <Route path="ModelsList" element={<ModelsList />}/>

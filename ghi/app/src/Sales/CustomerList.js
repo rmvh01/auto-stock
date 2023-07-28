@@ -1,7 +1,5 @@
 import { useEffect,useState } from "react"
-
 function CustomerList(){
-
     const[customerlist,setCustomerlist] = useState([])
     const loadData = async ()=>{
         const url = 'http://localhost:8090/api/customer/'
@@ -14,7 +12,6 @@ function CustomerList(){
             console.log('error ... ... ...')
         }
     }
-
     useEffect(()=>{
         loadData()
     },[])
@@ -40,9 +37,7 @@ function CustomerList(){
                     )
                 })}
             </tbody>
-
       </table>
     )
 }
-
 export default CustomerList

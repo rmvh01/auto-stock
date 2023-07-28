@@ -1,9 +1,5 @@
 import { useState, useEffect } from "react";
-
-
-
 function SalesPersonHistory(){
-
     const [salesPeoples,setSalesPeoples] = useState([]);
     const salesPeopledd = async()=>{
         const url = 'http://localhost:8090/api/salespeople/';
@@ -16,7 +12,6 @@ function SalesPersonHistory(){
             console.log('salesPeopledd error ... ... ...')
         }
     }
-
     const[sales,setSales] = useState([])
     const salesLoad = async()=>{
         const url = 'http://localhost:8090/api/sale/';
@@ -30,7 +25,6 @@ function SalesPersonHistory(){
     useEffect(()=>{
         salesPeopledd()
         salesLoad()
-
     },[])
     const [salesPeople,setSalesPeople] = useState('');
     const salesPeopleHandler = event =>{
@@ -77,5 +71,4 @@ function SalesPersonHistory(){
         </>
       );
 }
-
 export default SalesPersonHistory

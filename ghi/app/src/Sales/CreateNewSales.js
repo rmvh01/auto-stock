@@ -1,10 +1,7 @@
 import { useState, useEffect } from "react";
 //NOTE
 // dd --> means dropdown function
-
-
 function CreateNewSales(){
-
 // creating a AutomobileVIN dropdown
 const [vins,setVins] = useState([]);
 const AutomobileVINdd = async() =>{
@@ -18,7 +15,6 @@ const AutomobileVINdd = async() =>{
       console.log("error with the AutomobileVINdd drop_down")
     }
   }
-
   // creating the salesPersons dropdown
   const [salesPersons,setSalesPersons] = useState([]);
   const salesPersonsdd = async()=>{
@@ -32,7 +28,6 @@ const AutomobileVINdd = async() =>{
       console.log("error with the salesPersonsdd drop_down");
     }
   }
-
   // creating the customers dropdown
   const [customers,setCustomers] = useState([]);
   const customerdd = async ()=>{
@@ -46,15 +41,12 @@ const AutomobileVINdd = async() =>{
       console.log("error with the customers drop_down");
     }
   }
-
 // use the efect only once
   useEffect(()=>{
     AutomobileVINdd()
     salesPersonsdd()
     customerdd()
   },[])
-
-
   const[vin,setVin] = useState('');
   const vinHandler = (event)=>{
     const value = event.target.value;
@@ -98,8 +90,6 @@ const AutomobileVINdd = async() =>{
           'Content-Type':'application/json'
         }
       }
-
-
          //updating the the inventory, so if the sales succes, update the inventory
          // into sold status true
       const udpatingInventory = async()=>{
@@ -120,8 +110,6 @@ const AutomobileVINdd = async() =>{
           console.log('updating success .... ... ...');
         }
       }
-
-
       const response1 = await fetch(url,fetchConfig)
       if(response1.ok){
         const json = await response1.json();
@@ -130,7 +118,6 @@ const AutomobileVINdd = async() =>{
         udpatingInventory()
       }
     }
-
       //calling the posting sales
       postingSales()
 
@@ -140,7 +127,6 @@ const AutomobileVINdd = async() =>{
       setCustomer('');
       setPrice('')
   }
-
     return (
     <div className="row">
       <div className="offset-3 col-6">
@@ -197,6 +183,4 @@ const AutomobileVINdd = async() =>{
     </div>
   );
 }
-
-
 export default CreateNewSales

@@ -22,8 +22,6 @@ def sales_people(request,id=None):
     if request.method =='GET':
         salespeople = SalesPerson.objects.all()
         return JsonResponse(salespeople, encoder=SalesPeopleEncoder,safe=False)
-
-
     elif request.method =='POST':
         data = request.body
         content = json.loads(data)

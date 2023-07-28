@@ -17,8 +17,6 @@ class SalesPerson(models.Model):
     last_name = models.CharField(max_length=150)
     employee_id = models.CharField(max_length=150)
 
-
-
     # creatig href using a reverse method
     def get_api_url(self):
         href = reverse("sales_people")
@@ -30,7 +28,6 @@ class Customer(models.Model):
     last_name = models.CharField(max_length=150)
     address = models.CharField(max_length=250,null=True)
     phone_number = models.CharField(max_length=15)
-
 
     def get_api_url(self):
         href = reverse('get_customer')

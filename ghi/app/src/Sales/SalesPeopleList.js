@@ -1,9 +1,6 @@
 import { useState,useEffect} from "react";
-
-
 function SalesPeopleList(){
     const [salesPeople,SetSalesPeople] = useState([])
-
     const loaddata = async()=>{
         const salesPeopleUrl = 'http://localhost:8090/api/salespeople/';
         const response = await fetch(salesPeopleUrl);
@@ -16,12 +13,9 @@ function SalesPeopleList(){
             console.log('fetching error')
         }
     }
-
     useEffect(()=>{
         loaddata()
     },[])
-
-
     return(
         <table className="table table-striped">
             <thead>
@@ -42,9 +36,7 @@ function SalesPeopleList(){
                     )
                 })}
             </tbody>
-
       </table>
     )
 }
-
 export default SalesPeopleList;

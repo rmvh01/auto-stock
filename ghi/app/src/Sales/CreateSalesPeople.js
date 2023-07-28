@@ -1,27 +1,20 @@
 import {useState,useEffect} from "react";
-
-
 function CreateSalesPeople(){
    const[first_name,setFirstName] = useState("");
    const firstNameHandler = event=>{
     const value = event.target.value;
     setFirstName(value)
 };
-
-
    const [last_name,setLastName] = useState("");
    const setLastNameHandler = event =>{
     const value = event.target.value;
     setLastName(value)
    };
-
    const [employee_id,setEmployeeID] = useState("")
    const setEmployeeIDHandler = event =>{
     const value = event.target.value;
     setEmployeeID(value)
    }
-
-
    async function submithandler(event){
     event.preventDefault();
     const data = {};
@@ -78,5 +71,4 @@ function CreateSalesPeople(){
         </div>
       )
 }
-
 export default CreateSalesPeople

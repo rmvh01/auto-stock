@@ -1,5 +1,4 @@
 import { useState } from "react";
-
 function CreateCustomer(){
     const [first_name,setFirstName] = useState("")
     const firstNameHandler = event =>{
@@ -21,7 +20,6 @@ function CreateCustomer(){
         const value = event.target.value;
         setPhoneNumber(value);
     }
-
     const submitHandler = async (event) =>{
         event.preventDefault()
         const data ={};
@@ -29,7 +27,6 @@ function CreateCustomer(){
         data.last_name = last_name;
         data.address = address;
         data.phone_number = phone_number
-
         const content = JSON.stringify(data)
         const url = "http://localhost:8090/api/customer/"
         const fetchConfig = {
@@ -62,22 +59,18 @@ function CreateCustomer(){
                   <input value={first_name} onChange={firstNameHandler} placeholder="Name" required type="text" name="name" id="name" className="form-control" />
                   <label htmlFor="name">first Name</label>
                 </div>
-
                 <div className="form-floating mb-3">
                   <input value={last_name} onChange={latsNameHandler} placeholder="Color" required type="text" name="Color" id="Color" className="form-control" />
                   <label htmlFor="roomCount">last Name</label>
                 </div>
-
                 <div className="form-floating mb-3">
                   <input value={address} onChange={addressHandler} placeholder="Manufacturer" required type="text" name="manufacturer" id="manufacturer" className="form-control" />
                   <label htmlFor="city">Address</label>
                 </div>
-
                 <div className="form-floating mb-3">
                   <input value={phone_number} onChange={phoneNumberHandler} placeholder="Manufacturer" required type="text" name="manufacturer" id="manufacturer" className="form-control" />
                   <label htmlFor="city">Phone Number</label>
                 </div>
-
                 <div className="mb-3">
                 </div>
                 <button className="btn btn-primary">Create</button>
@@ -87,5 +80,4 @@ function CreateCustomer(){
           </div>
         )
 }
-
 export default CreateCustomer
