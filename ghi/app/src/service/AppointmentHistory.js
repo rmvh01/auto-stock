@@ -39,8 +39,8 @@ function AppointmentListH() {
         <>
         <h1>Search by VIN</h1>
         <br></br>
-        <div class="input-group mb-3">
-            <span class="input-group-text" id="basic-addon1">&#128665;</span>
+        <div className="input-group mb-3">
+            <span className="input-group-text" id="basic-addon1">&#128647;</span>
             <input value={number} onChange={vinNumberHandler} required type="text" class="form-control" placeholder="search..." name="search" id="search" aria-label="Username" aria-describedby="basic-addon1" />
         </div>
         <table className="table table-striped">
