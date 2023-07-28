@@ -46,11 +46,13 @@ function Nav() {
 
         <li className="nav-item dropdown">
           <button className="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-          ManufacturersList
+          inventory
           </button>
           <ul className="dropdown-menu dropdown-menu-dark">
-            <li><NavLink className="dropdown-item text-white bg-dark" to="ManufacturersList">Manufacturers List</NavLink></li>
+            <li><NavLink className="dropdown-item text-white bg-dark" to="CreateModels">Create Models</NavLink></li>
             <li><NavLink className="dropdown-item text-white bg-dark" to="CreateManufacturers">Create Manufacturers</NavLink></li>
+            <li><NavLink className="dropdown-item text-white bg-dark" to="ModelsList">Models List</NavLink></li>
+            <li><NavLink className="dropdown-item text-white bg-dark" to="ManufacturersList">Manufacturers List</NavLink></li>
           </ul>
         </li>
 

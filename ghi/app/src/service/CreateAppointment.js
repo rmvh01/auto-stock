@@ -25,7 +25,7 @@ function CreateAppointment() {
         setTime(value)
     }
 
-    const [technician, setTechnician] = useState([])
+    const [technician, setTechnician] = useState('')
     const technicianHandler = event => {
         const value = event.target.value
         setTechnician(value)
