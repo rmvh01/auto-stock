@@ -39,13 +39,12 @@ function Nav() {
           </button>
           <ul className="dropdown-menu dropdown-menu-dark">
             <li><NavLink className="dropdown-item text-white bg-dark" to="CreateTechnician">Create Technician</NavLink></li>
-            <li><NavLink className="dropdown-item text-white bg-dark" to="TechnicianList">Technician List</NavLink></li>
             <li><NavLink className="dropdown-item text-white bg-dark" to="CreateAppointment">Create Appointment</NavLink></li>
+            <li><NavLink className="dropdown-item text-white bg-dark" to="TechnicianList">Technician List</NavLink></li>
             <li><NavLink className="dropdown-item text-white bg-dark" to="AppointmentList">List Appointments</NavLink></li>
             <li><NavLink className="dropdown-item text-white bg-dark" to="AppointmentHistory">Service Appointment History</NavLink></li>
           </ul>
         </li>
-
         <li className="nav-item dropdown">
           <button className="btn btn-dark dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
           Inventory
@@ -59,8 +58,6 @@ function Nav() {
             <li><NavLink className="dropdown-item text-white bg-dark" to="AutomobilesList">Automobiles List</NavLink></li>
           </ul>
         </li>
-
-
       </ul>
     </div>
   </div>
@@ -69,57 +66,5 @@ function Nav() {
 
 
   )
-    // <nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-    //   <div className="container-fluid ">
-    //     <NavLink className="navbar-brand" to="/">CarCar</NavLink>
-
-    //     <div className="btn-group">
-    //       <button type="button" class="btn btn-danger dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-    //         Action
-    //       </button>
-    //       <ul class="dropdown-menu">
-    //         <li><a class="dropdown-item" href="#">Action</a></li>
-    //         <li><a class="dropdown-item" href="#">Another action</a></li>
-    //         <li><a class="dropdown-item" href="#">Something else here</a></li>
-    //         <li><hr class="dropdown-divider"/></li>
-    //         <li><a class="dropdown-item" href="#">Separated link</a></li>
-    //       </ul>
-    //     </div>
-
-
-  //         {/* <ul className="nav nav-underline">
-  //           <li className="nav-item">
-  //             <a className="nav-link text-success" aria-current="page" href="CreateSalesPeople">CreateSalesPeople</a>
-  //           </li>
-  //           <li className="nav-item">
-  //             <a className="nav-link text-success" href="SalesPeopleList">SalesPeopleList</a>
-  //           </li>
-  //           <li className="nav-item">
-  //             <a className="nav-link text-success" href="CreateCustomer">CreateCustomer</a>
-  //           </li>
-  //           <li className="nav-item">
-  //             <a className="nav-link text-success" href="CustomerList">CustomerList</a>
-  //           </li>
-  //           <li className="nav-item">
-  //             <a className="nav-link text-success" href="CreateNewSales">CreateNewSales</a>
-  //           </li>
-  //           <li className="nav-item">
-  //             <a className="nav-link text-success" href="SalesList">SalesList</a>
-  //           </li>
-  //           <li className="nav-item">
-  //             <a className="nav-link text-success" href="SalesPersonHistory">SalesPersonHistory</a>
-  //           </li>
-  //         </ul> */}
-
-  //       <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-  //         <span className="navbar-toggler-icon"></span>
-  //       </button>
-  //       <div className="collapse navbar-collapse" id="navbarSupportedContent">
-  //         <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-  //         </ul>
-  //       </div>
-  //     </div>
-  //   </nav>
-  // )
 }
 export default Nav;
