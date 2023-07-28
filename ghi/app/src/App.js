@@ -10,9 +10,13 @@ import SalesList from './Sales/SalesList';
 import SalesPersonHistory from './Sales/SalesPersonHistory';
 import ManufacturersList from './Inventory/ManufacturersList';
 import CreateManufacturers from './Inventory/CreateManufacturers';
-import CreateTechnician from "./Service/CreateTechnician"
-import TechnicianList from "./Service/TechnicianList"
-import CreateAppointment from "./Service/CreateAppointment"
+import CreateTechnician from "./service/CreateTechnician"
+import TechnicianList from "./service/TechnicianList"
+import CreateAppointment from "./service/CreateAppointment"
+import ModelsList from './Inventory/ModelsList';
+import CreateModels from './Inventory/CreateModels';
+import AutomobilesList from './Inventory/AutomobilesList'
+import CreateAutomobile from './Inventory/CreateAutomobile';
 
 function App() {
   return (
@@ -42,6 +46,10 @@ function App() {
           {/* inventory division */}
           <Route path="ManufacturersList" element={<ManufacturersList />} />
           <Route path="CreateManufacturers" element={<CreateManufacturers />} />
+          <Route path="ModelsList" element={<ModelsList />}/>
+          <Route path="CreateModels" element={<CreateModels />}/>
+          <Route path="AutomobilesList" element={<AutomobilesList />}/>
+          <Route path="CreateAutomobile" element={<CreateAutomobile />}/>
 
 
 
