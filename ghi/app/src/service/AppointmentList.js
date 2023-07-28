@@ -21,7 +21,7 @@ function AppointmentList() {
             const url = `http://localhost:8100/api/automobiles/${vin}`
             const response = await fetch(url)
             if (!response.ok) {
-                throw new Error("404 Does not exist")
+                throw new Error("Expected error; the customer associated with this vin does not exist")
             }
             return "yes"
         } catch (error) {
@@ -30,10 +30,18 @@ function AppointmentList() {
         }
     }
 
+    // This one is kinda horrible (both to write and to read)
+    // This is called once in loadData to apply the vip status to the relevant car
+
+    // Define async fat arrow function that accepts data array
     const updateVIPStatus = async (data) => {
+        // new list to store the result of the fetchVIPStatus
         const updatedList = await Promise.all(
+            // basically we iterate through the content and run fetchVIPStatus on each automobiles vin in the inventory
             data.map(async (content) => {
+                // we had to have the await keyword here because fetchVIPStatus is an async function
                 const isvip = await fetchVIPStatus(content.vin)
+                // the object will contain all of the properties already on content, then will add isvip as a new property to the content
                 return {...content, isvip}
             })
         )
@@ -42,7 +50,7 @@ function AppointmentList() {
 
     useEffect(() => {
         loadData()
-    },[])
+    },[]) // this empty dependency array needs to be there, you can remove it if you want and my appointment list will start a rave
 
     async function finishAppointment(appointment_href) {
         const url = `http://localhost:8080/${appointment_href}/finish/`
@@ -56,6 +64,8 @@ function AppointmentList() {
         if (!response.ok) {
             console.log("response not ok")
         } else {
+            // prev is the previous state of the appointment list, we filter that by checking if the href on the previous state
+            // ... matches the the href passed into the function.
             setAppointmentList(prev => prev.filter(appointment => appointment.href !== appointment_href))
         }
     }
